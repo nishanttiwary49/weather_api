@@ -3,7 +3,8 @@ import "./App.css";
 
 import SearchBar from "./components/search-bar";
 import CurrentWeather from "./components/current-weather";
-import Forecast from "./components/forecast";
+import Forecast_hourly from "./components/forecast_hourly";
+import Forecast_days from "./components/forecast_days";
 
 import * as Api from "./api/weatherAPI";
 
@@ -15,6 +16,7 @@ class App extends React.Component {
       location: "Jamshedpur",
       metric: FARENHEIT,
       hourlyForecast: [],
+      dailyForecast:[],
       current: "",
     };
 
@@ -39,12 +41,14 @@ class App extends React.Component {
       current: forecastRes.current,
       metric: FARENHEIT,
       hourlyForecast: forecastRes.hourly,
+      dailyForecast:forecastRes.daily,
     });
   }
 
   render() {
     const location = this.state.location;
     const hourlyForecast = this.state.hourlyForecast;
+    const dailyForecast = this.state.dailyForecast;
     const current = this.state.current;
 
     return (
@@ -57,7 +61,8 @@ class App extends React.Component {
           />
 
           {current && <CurrentWeather current={current} />}
-          {hourlyForecast.length > 0 && <Forecast forecast={hourlyForecast} />}
+          {hourlyForecast.length > 0 && <Forecast_hourly forecast={hourlyForecast} />}
+          {dailyForecast.length > 0 &&<Forecast_days days={dailyForecast}/>}
         </header>
       </div>
     );

@@ -1,5 +1,5 @@
 .forecast {
-  background: #fafafa;
+  background: #000;
   border: 1px solid #000;
   border-radius: 5px;
   margin: 15px;
@@ -7,6 +7,7 @@
 
   &__title {
     margin-left: 15px;
+    color: white;
   }
 
   &-items {
@@ -50,7 +51,7 @@
 
     &__temp {
       font-weight: 600;
-      color: #000;
+      color: whitesmoke;
     }
   }
 }
